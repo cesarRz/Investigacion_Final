@@ -18,6 +18,11 @@
 
 <body style="background-color:lightblue;">
 
+    <form action="" id="coordenadas" >
+        <input type="hidden" name="x" id="x">
+        <input type="hidden" name="y" id="y">
+    </form>
+    
     <button id="accelPermsButton" style="height:50px;" onclick="getAccel()">
         <h1>Get Accelerometer Permissions</h1>
     </button>
@@ -28,7 +33,7 @@
         var py = 50;
         var vx = 0.0; // Velocity x and y
         var vy = 0.0;
-        var updateRate = 1 / 60; // Sensor refresh rate
+        var updateRate = 1 / 100; // Sensor refresh rate
 
         function getAccel() {
             DeviceMotionEvent.requestPermission().then(response => {
@@ -62,6 +67,30 @@
                         dot = document.getElementsByClassName("indicatorDot")[0]
                         dot.setAttribute('style', "left:" + (px) + "%;" +
                             "top:" + (py) + "%;");
+
+
+                        // SENDING DATA
+                        // Get a reference to the form and its input fields
+                        const form = document.getElementById('coordenadas');
+                        const xInput = document.getElementById('x');
+                        const yInput = document.getElementById('y');
+
+                        // Set the values of the input fields
+                        xInput.value = px;
+                        yInput.value = py;
+
+                        // Send the form data to the Flask app using AJAX
+                        const xhr = new XMLHttpRequest();
+                        xhr.open('POST', "{{ url_for('giroscopio') }}");
+                
+                        xhr.onload = function() {
+                            if (xhr.status === 200) {
+                                // Handle successful response from Flask app
+                            } else {
+                                // Handle error response from Flask app
+                            }
+                        };
+                        xhr.send(new FormData(form));
 
                     });
                 }

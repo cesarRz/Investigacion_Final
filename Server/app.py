@@ -1,5 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for
 import socket
+import csv
+import os
 
 app = Flask(__name__)
 
@@ -21,13 +23,33 @@ def send_data_to_socket(data, host, port):
     return response.decode()
 
 
+def send_csv_data(data):
+    path  = os.path.join(app.root_path,"..","coordenadas.csv")
+    
+    with open(path, 'w', newline='') as f:
+    # Create a CSV writer object
+        writer = csv.writer(f)
+    
+        # Write the data to the CSV file
+        writer.writerow(data)
+    
+    
+
+
 @app.route('/')
 def hello():
     return 'Hello, World!'
 
 
-@app.route('/giroscopio/')
+@app.route('/giroscopio/', methods=['GET', 'POST'])
 def giroscopio():
+
+    x = request.form.get('x')
+    y = request.form.get('y')
+    if x != None:
+        data = [x,y]
+        send_csv_data(data)
+
     return render_template("giroscopio.html")
 
 @app.route('/send-data/', methods=['GET'])
