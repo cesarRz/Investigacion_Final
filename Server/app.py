@@ -4,8 +4,6 @@ import csv
 import os
 
 app = Flask(__name__)
-
-
 import socket
 
 def send_data_to_socket(data, host, port):
@@ -26,15 +24,11 @@ def send_data_to_socket(data, host, port):
 def send_csv_data(data):
     path  = os.path.join(app.root_path,"..","coordenadas.csv")
     
-    with open(path, 'w', newline='') as f:
+    with open(path, 'w') as f:
     # Create a CSV writer object
         writer = csv.writer(f)
-    
         # Write the data to the CSV file
         writer.writerow(data)
-    
-    
-
 
 @app.route('/')
 def hello():
@@ -46,6 +40,7 @@ def giroscopio():
 
     x = request.form.get('x')
     y = request.form.get('y')
+    print(x, y)
     if x != None:
         data = [x,y]
         send_csv_data(data)
@@ -55,12 +50,9 @@ def giroscopio():
 @app.route('/send-data/', methods=['GET'])
 @app.route('/send-data/<direccion>', methods=['POST', 'GET'])
 def send_data(direccion=''):
-
     if direccion != "":
         response = send_data_to_socket(direccion, "localhost", 5002)
         print(response)
-        
-
     return render_template("botones.html")
 
 

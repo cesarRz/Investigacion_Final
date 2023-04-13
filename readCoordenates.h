@@ -12,7 +12,7 @@ float * readCoordenates () {
     FILE *fp;
     float rx, ry;
 
-    fp = fopen("test.csv", "r");
+    fp = fopen("coordenadas.csv", "r");
     if (fp == NULL)
     {
         printf("El archivo no se puede abrir \n");

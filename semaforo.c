@@ -9,15 +9,9 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#include <unistd.h>
 
 
-int socket_desc, new_socket, c;
-struct sockaddr_in server, client;
-char *message;
-
+#include "readCoordenates.h"
 
 GLUquadricObj *cilindro;
 GLfloat  girax = 0, giray= 0, zoom=0;
@@ -30,64 +24,13 @@ int color_amarillo[4] = {192, 192, 192, 255};
 
 int foco = 0;
 
-
-int hilo(int socket_desc, int new_socket, int c, struct sockaddr_in server, struct sockaddr_in client){
-    char client_message[1];
-    
-        // Listen
-        listen(socket_desc, 3);
-
-        // Accept and incoming connection
-        puts("Waiting for incoming connections...");
-        c = sizeof(struct sockaddr_in);
-        new_socket = accept(socket_desc, (struct sockaddr *)& client, (socklen_t *)&c);
-        if (new_socket < 0) {
-            perror("Accept failed");
-            return 1;
-        }
-        puts("Connection accepted");
-
-        // Receive data from Flask app
-        memset(client_message, '\0', sizeof(client_message));
-        if (recv(new_socket, client_message, sizeof(client_message), 0) < 0) {
-            puts("Receive failed");
-            return 1;
-        }
-        printf("Data received from Flask app: %s\n", client_message);
-
-        switch (client_message[0])
-        {
-        case '3':
-            girax +=15;
-            break;
-
-        case '1':
-            girax-= 15;
-            break;
-
-        case '4':
-            giray+= 15;
-            break;
-
-        case '2':
-            giray-= 15;
-            break;
-        
-        default:
-            break;
-        }
-
-        glutPostRedisplay();
-
-        return 0;
-}
-
 //   Rotacion XY y Zoom
 void mover(void) {
     glTranslated( 0, 0, zoom);
     glRotated( giray, 0.0, 1.0, 0.0);
     glRotated( girax, 1.0, 0.0, 0.0);
 }
+
 //  Malla y Ejes
 void creaMalla(int long_eje) {
     glColor3f(1.0,0.0,0.0);
@@ -221,6 +164,12 @@ void animaT(int v){
         break;
     }
 
+    float * coordenates = readCoordenates();
+    printf("\nX: %f\n", coordenates[0]);
+    printf("\nY: %f", coordenates[1]);
+    girax = coordenates[0];
+    giray = coordenates[1];
+
     glutPostRedisplay();
 
 
@@ -262,7 +211,6 @@ void dibuja(void) {
 
     glutSwapBuffers();
 
-    hilo(socket_desc,new_socket, c, server, client);
 }
 // Funciones con Teclas
 void teclado(unsigned char key, int x, int y) {
@@ -314,27 +262,6 @@ void ajusta(int ancho, int alto) {
 }
 int main(int argc, char** argv) {
 
-
-    // Create socket
-    socket_desc = socket(AF_INET, SOCK_STREAM, 0);
-    if (socket_desc == -1) {
-        printf("Could not create socket");
-    }
-    puts("Socket created");
-
-    // Prepare the sockaddr_in structure
-    server.sin_family = AF_INET;
-    server.sin_addr.s_addr = INADDR_ANY;
-    server.sin_port = htons(5002);
-
-    // Bind
-    if (bind(socket_desc, (struct sockaddr *)&server, sizeof(server)) < 0) {
-        perror("Bind failed");
-        return 1;
-    }
-    puts("Bind done");
-
-
     glutInitDisplayMode(GLUT_RGB|GLUT_DOUBLE|GLUT_DEPTH);
     glutInitWindowPosition(100, 100);
     glutInitWindowSize(500, 500);
@@ -345,11 +272,8 @@ int main(int argc, char** argv) {
     glutKeyboardFunc(teclado);
     glutSpecialFunc(rotar);
     glutTimerFunc(2, animaT, 0);
+    
     glutMainLoop();
-
-
-    close(socket_desc);
-    close(new_socket);
 
 
     return 0;
