@@ -32,7 +32,7 @@ def send_csv_data(data):
 
 @app.route('/')
 def hello():
-    return 'Hello, World!'
+    return redirect(url_for('giroscopio'))
 
 
 @app.route('/giroscopio/', methods=['GET', 'POST'])
