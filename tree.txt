@@ -1,0 +1,11 @@
+.
+|____Server
+| |____app.py
+| |____templates
+| | |____botones.html
+| | |____giroscopio.html
+|____semaforo.c
+|____reciever.c
+|____tree.txt
+|____coordenadas.csv
+|____semaforo
