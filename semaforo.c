@@ -66,6 +66,14 @@ void creaEjes(void) {
     glEnd();
 }
 
+void leeCoordenadas(){
+    float * coordenates = readCoordenates();
+    printf("\nX: %f\n", coordenates[0]);
+    printf("\nY: %f", coordenates[1]);
+    girax = coordenates[0];
+    giray = coordenates[1];
+}
+
 
 void animaT(int v){
 
@@ -81,6 +89,7 @@ void animaT(int v){
         color_rojo[1] = paleta[1][1];
         color_rojo[2] = paleta[1][2];
         color_rojo[3] = paleta[1][3];
+        
         glutTimerFunc(2000, animaT, 0);
         foco ++;
         break;
@@ -95,6 +104,7 @@ void animaT(int v){
         color_verde[2] = paleta[3][2];
         color_verde[3] = paleta[3][3];
 
+        
         glutTimerFunc(2000, animaT, 0);
         glutPostRedisplay();
 
@@ -107,6 +117,7 @@ void animaT(int v){
         color_verde[2] = paleta[0][2];
         color_verde[3] = paleta[0][3];
 
+        
         glutTimerFunc(500, animaT, 0);
 
         foco ++;
@@ -117,6 +128,7 @@ void animaT(int v){
         color_verde[2] = paleta[3][2];
         color_verde[3] = paleta[3][3];
 
+        
         glutTimerFunc(500, animaT, 0);
 
         foco ++;
@@ -128,6 +140,7 @@ void animaT(int v){
         color_verde[2] = paleta[0][2];
         color_verde[3] = paleta[0][3];
 
+        
         glutTimerFunc(500, animaT, 0);
 
         foco ++;
@@ -164,12 +177,6 @@ void animaT(int v){
         break;
     }
 
-    float * coordenates = readCoordenates();
-    printf("\nX: %f\n", coordenates[0]);
-    printf("\nY: %f", coordenates[1]);
-    girax = coordenates[0];
-    giray = coordenates[1];
-
     glutPostRedisplay();
 
 
@@ -199,6 +206,8 @@ void dibuja_cubo(){
 }
 
 void dibuja(void) {
+
+
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     
     glPushMatrix();
@@ -209,7 +218,11 @@ void dibuja(void) {
 
     dibuja_cubo();
 
+    leeCoordenadas();
+    glutPostRedisplay();
     glutSwapBuffers();
+
+
 
 }
 // Funciones con Teclas
