@@ -15,8 +15,9 @@ float * readCoordenates () {
     fp = fopen("coordenadas.csv", "r");
     if (fp == NULL)
     {
-        printf("El archivo no se puede abrir \n");
-        exit(1);
+        coordenates[0] = 0;
+        coordenates[1] = 0;
+        return (ptrCoordenates);
     }
 
     while (fscanf(fp, "%f, %f", &rx, &ry) != EOF)
