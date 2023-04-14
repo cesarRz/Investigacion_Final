@@ -94,3 +94,4 @@ Para correr el programa del semaforo se utiliza el siguiente comando en MacOs
 
 
 # Video
+[![](portada.jpeg)](https://drive.google.com/file/d/1A0kIn6vO2xwz-ORM2Vl05FGEOXdexnRF/view?usp=share_link)
