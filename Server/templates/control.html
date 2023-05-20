@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Landscape, Portrait, and Desktop Mode</title>
+
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <style>
+
+    #landscape {
+      display: none;
+    }
+
+    #portrait {
+      display: none;
+    }
+
+    @media (orientation: landscape) {
+      #landscape {
+        display: block;
+      }
+      #portrait {
+        display: none;
+      }
+    }
+
+    @media (orientation: portrait) {
+      #portrait {
+        display: block;
+      }
+      #landscape {
+        display: none;
+      }
+    }
+
+    /* Style for demonstration purposes */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    #landscape {
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #portrait {
+      width: 50%;
+      padding: 50px;
+      height: 300px;
+      background-color: #00ccff;
+      text-align: center;
+      font-size: 24px;
+      color: #ffffff;
+      border-radius: 25px;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="landscape">
+
+    <div id="controllerOut">
+      <div class="cable"></div>
+      <div id="controllerInner">
+        <div class="left">
+          <div class="arrow">
+            <div id="trs"></div>
+            <div class="base"></div>
+          </div>
+          <div class="arrow aDown">
+            <div id="trs"></div>
+            <div class="base"></div>
+          </div>
+          <div class="arrow aLeft">
+            <div id="trs"></div>
+            <div class="base"></div>
+          </div>
+          <div class="arrow aRight">
+            <div id="trs"></div>
+            <div class="base"></div>
+          </div>
+          <div class="horz"></div>
+          <div class="horzShad"></div>
+          <div class="horzShadWhite"></div>
+          <div class="moves"></div>
+          <div class="vert">
+          </div>
+          <div class="vertWhite"></div>
+        </div><!--End Left-->
+        <div class="center">
+          <div class="bar bTop"></div>
+          <div class="bar"></div>
+          <div class="bar bText">
+            <ul>
+              <li>SELECT</li>
+              <li>START</li>
+            </ul>
+          </div>
+          <div class="bar buttonBar">
+            <div class="buttonBarInner">
+              <ul>
+                <li><!--##--></li>
+                <li><!--##--></li>
+              </ul>
+            </div>
+          </div><!--end buttonBar-->
+          <div class="bar bBot"></div>
+        </div><!--End Center-->
+        <div class="right">
+          <h3 class="trademark">
+            Nintendo
+            <span class="reg">&reg;</span>
+          </h3>
+           <ul class="rightButtons"><!-- Botones -->
+              <li>
+                <div class="circ"></div>
+                <span class="buttNums">B</span>
+              </li>
+              <li>
+                <div class="circ"></div>
+                <span class="buttNums aButt">A</span>
+              </li>
+          </ul>
+        </div><!--End Right-->
+      </div>
+    </div>
+    
+  </div>
+
+  <div id="portrait">
+    <h1>Gira tu telefono</h1>
+    <p>Para usar el control gira tu telefono</p>
+  </div>
+</body>
+</html>

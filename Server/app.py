@@ -32,7 +32,7 @@ def send_csv_data(data):
 
 @app.route('/')
 def hello():
-    return redirect(url_for('giroscopio'))
+    return redirect(url_for('controller'))
 
 
 @app.route('/giroscopio/', methods=['GET', 'POST'])
@@ -54,6 +54,14 @@ def send_data(direccion=''):
         response = send_data_to_socket(direccion, "localhost", 5002)
         print(response)
     return render_template("botones.html")
+
+@app.route('/controller/', methods=['GET'])
+@app.route('/controller/<direccion>', methods=['POST', 'GET'])
+def controller(direccion=''):
+    if direccion != "":
+        response = send_data_to_socket(direccion, "localhost", 5002)
+        print(response)
+    return render_template("control.html")
 
 
 if __name__ == '__main__':

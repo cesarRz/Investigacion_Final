@@ -1,0 +1,409 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,500,700);
+@import url(https://fonts.googleapis.com/css?family=Orbitron:500,700,900);
+.underText {
+  color: #f3f3f3;
+  text-align: center;
+  position: relative;
+  top: 160px;
+  font-size: 1.1em;
+  font-weight: 400;
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  color: #d92214;
+  background: url("http://ipadflava.com/wp-content/uploads/hardwood-floor.jpg");
+  background-repeat: repeat;
+  height: 100%;
+  width: 100%;
+}
+
+.cable {
+  position: absolute;
+  width: 12px;
+  height: 150px;
+  background: #0c0c0c;
+  background: -moz-linear-gradient(left, #0c0c0c 0%, #3f3f3f 52%, #0c0c0c 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #0c0c0c), color-stop(52%, #3f3f3f), color-stop(100%, #0c0c0c));
+  background: -webkit-linear-gradient(left, #0c0c0c 0%, #3f3f3f 52%, #0c0c0c 100%);
+  background: -o-linear-gradient(left, #0c0c0c 0%, #3f3f3f 52%, #0c0c0c 100%);
+  background: -ms-linear-gradient(left, #0c0c0c 0%, #3f3f3f 52%, #0c0c0c 100%);
+  background: linear-gradient(to right, #0c0c0c 0%, #3f3f3f 52%, #0c0c0c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#0c0c0c", endColorstr="#0c0c0c",GradientType=1 );
+  top: -154px;
+  left: 80px;
+  box-shadow: 2px 0px 3px 0px rgba(50, 50, 50, 0.91);
+}
+
+.arrow {
+  position: absolute;
+  left: 59px;
+  top: 33px;
+  z-index: 5;
+  opacity: 0.7;
+}
+.arrow #trs {
+  border-top: solid transparent;
+  border-left: solid 8px transparent;
+  border-right: solid 8px transparent;
+  border-bottom: solid 8px #0d0d0d;
+  width: 0;
+  height: 0;
+  background: -webkit-linear-gradient(#0d0d0d, #404040) left repeat;
+  background: linear-gradient(#0d0d0d, #404040) left repeat;
+}
+.arrow .base {
+  background: -webkit-linear-gradient(#0d0d0d, #404040) left repeat;
+  background: linear-gradient(#0d0d0d, #404040) left repeat;
+  width: 9px;
+  height: 14px;
+  left: 3.5px;
+  position: relative;
+}
+
+.aDown {
+  -webkit-transform: scale(0.9) rotate(180deg);
+  -moz-transform: scale(0.9) rotate(180deg);
+  -ms-transform: scale(0.9) rotate(180deg);
+  -o-transform: scale(0.9) rotate(180deg);
+  transform: scale(0.9) rotate(180deg);
+  bottom: 29px;
+}
+.aDown #trs {
+  border-bottom: solid 8px #0d0d0d;
+}
+.aDown .base {
+  background: -webkit-linear-gradient(#0d0d0d, #404040) left repeat;
+  background: linear-gradient(#0d0d0d, #404040) left repeat;
+}
+
+.aRight {
+  -webkit-transform: scale(0.9) rotate(90deg);
+  -moz-transform: scale(0.9) rotate(90deg);
+  -ms-transform: scale(0.9) rotate(90deg);
+  -o-transform: scale(0.9) rotate(90deg);
+  transform: scale(0.9) rotate(90deg);
+  bottom: 28px;
+  top: 30px;
+}
+.aRight #trs {
+  border-bottom: solid 8px #0d0d0d;
+  opacity: 0.8;
+}
+.aRight .base {
+  background: -webkit-linear-gradient(#0d0d0d, #404040) left repeat;
+  background: linear-gradient(#0d0d0d, #404040) left repeat;
+}
+
+.aLeft {
+  -webkit-transform: scale(0.9) rotate(-90deg);
+  -moz-transform: scale(0.9) rotate(-90deg);
+  -ms-transform: scale(0.9) rotate(-90deg);
+  -o-transform: scale(0.9) rotate(-90deg);
+  transform: scale(0.9) rotate(-90deg);
+  bottom: 28px;
+  top: 30px;
+}
+.aLeft #trs {
+  border-bottom: solid 8px #0d0d0d;
+  opacity: 0.8;
+}
+.aLeft .base {
+  background: -webkit-linear-gradient(#0d0d0d, #404040) left repeat;
+  background: linear-gradient(#0d0d0d, #404040) left repeat;
+}
+
+#controllerOut {
+  position: relative;
+  background: #c3c4c6;
+  width: 500px;
+  height: 200px;
+  margin: 0 auto;
+  border-top: solid 4px #d2d6d7;
+  top: 150px;
+  box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.55);
+  border-radius: 9px;
+}
+#controllerOut #controllerInner {
+  position: relative;
+  background: -webkit-linear-gradient(#2e2724, #1F1714) left repeat;
+  background: linear-gradient(#2e2724, #1F1714) left repeat;
+  width: 480px;
+  height: 155px;
+  margin: 0 auto;
+  border-radius: 6px;
+  top: 35px;
+  box-shadow: inset 2px -2px 4px 0 rgba(50, 50, 50, 0.75);
+  border: 1px solid #191816;
+}
+#controllerOut #controllerInner .left {
+  position: relative;
+  float: left;
+  width: 28%;
+  text-align: center;
+  height: 155px;
+}
+#controllerOut #controllerInner .left .vert {
+  width: 24px;
+  height: 90px;
+  background: -webkit-linear-gradient(#1c1c1c, #1f1f1f) left repeat;
+  background: linear-gradient(#1c1c1c, #1f1f1f) left repeat;
+  border-radius: 6px;
+  border: solid 4px #000;
+  margin: 0 auto;
+  top: 28px;
+  z-index: 1;
+  position: relative;
+}
+#controllerOut #controllerInner .left .moves {
+  width: 20px;
+  height: 20px;
+  background: -webkit-linear-gradient(#0d0d0d, #404040) left repeat;
+  background: linear-gradient(#0d0d0d, #404040) left repeat;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  border: solid 1px #272727;
+  margin: 0 auto;
+  position: absolute;
+  left: 56px;
+  z-index: 4;
+  top: 67px;
+}
+#controllerOut #controllerInner .left .vertWhite {
+  width: 24px;
+  height: 90px;
+  background: -webkit-linear-gradient(#1c1c1c, #1f1f1f) left repeat;
+  background: linear-gradient(#1c1c1c, #1f1f1f) left repeat;
+  border-radius: 6px;
+  border: solid 6px #d6d8d7;
+  margin: 0 auto;
+  top: 26px;
+  z-index: 0;
+  position: absolute;
+  left: 49px;
+}
+#controllerOut #controllerInner .left .horz {
+  width: 25px;
+  height: 90px;
+  background: -webkit-linear-gradient(#1c1c1c, #1f1f1f) left repeat;
+  background: linear-gradient(#1c1c1c, #1f1f1f) left repeat;
+  border-radius: 6px;
+  display: block;
+  left: 50px;
+  margin: 0 auto;
+  top: 34px;
+  position: absolute;
+  -webkit-transform: scale(0.9) rotate(90deg);
+  -moz-transform: scale(0.9) rotate(90deg);
+  -ms-transform: scale(0.9) rotate(90deg);
+  -o-transform: scale(0.9) rotate(90deg);
+  transform: scale(0.9) rotate(90deg);
+  z-index: 2;
+  text-align: center;
+}
+#controllerOut #controllerInner .left .horzShad {
+  width: 25px;
+  height: 99px;
+  background: -webkit-linear-gradient(#1c1c1c, #1f1f1f) left repeat;
+  background: linear-gradient(#1c1c1c, #1f1f1f) left repeat;
+  border-radius: 6px;
+  border: solid 4px #000;
+  display: block;
+  left: 49px;
+  margin: 0 auto;
+  top: 25px;
+  position: absolute;
+  -webkit-transform: scale(0.9) rotate(90deg);
+  -moz-transform: scale(0.9) rotate(90deg);
+  -ms-transform: scale(0.9) rotate(90deg);
+  -o-transform: scale(0.9) rotate(90deg);
+  transform: scale(0.9) rotate(90deg);
+  z-index: 1;
+  text-align: center;
+  box-shadow: 0 2px 5px 0 #323232;
+}
+#controllerOut #controllerInner .left .horzShadWhite {
+  width: 25px;
+  height: 99px;
+  background: -webkit-linear-gradient(#1c1c1c, #1f1f1f) left repeat;
+  background: linear-gradient(#1c1c1c, #1f1f1f) left repeat;
+  border-radius: 6px;
+  border: solid 6px #d6d8d7;
+  display: block;
+  left: 47px;
+  margin: 0 auto;
+  top: 23px;
+  position: absolute;
+  -webkit-transform: scale(0.9) rotate(90deg);
+  -moz-transform: scale(0.9) rotate(90deg);
+  -ms-transform: scale(0.9) rotate(90deg);
+  -o-transform: scale(0.9) rotate(90deg);
+  transform: scale(0.9) rotate(90deg);
+  z-index: 0;
+  text-align: center;
+}
+#controllerOut #controllerInner .center {
+  width: 34%;
+  height: 155px;
+  float: left;
+}
+#controllerOut #controllerInner .center .bar {
+  width: 100%;
+  margin: 0 auto;
+  height: 24px;
+  background: #878880;
+  margin-bottom: 6px;
+  border-radius: 6px;
+}
+#controllerOut #controllerInner .center .bTop {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  height: 25px;
+  margin-top: -1px;
+}
+#controllerOut #controllerInner .center .bBot {
+  height: 16px;
+  position: relative;
+  top: 6px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+#controllerOut #controllerInner .center .bText {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 900;
+  font-size: 0.795em;
+}
+#controllerOut #controllerInner .center .bText ul {
+  list-style: none;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  margin: 0;
+}
+#controllerOut #controllerInner .center .bText ul li {
+  display: inline-block;
+  margin: 7px 8px 0 8px;
+  color: #bf2618;
+  text-shadow: -1px 0px rgba(0, 0, 0, 0.2);
+}
+#controllerOut #controllerInner .center .buttonBar {
+  background: #c3c4c6;
+  height: 38px;
+  border-radius: 8px;
+  position: relative;
+  top: 3px;
+}
+#controllerOut #controllerInner .center .buttonBar .buttonBarInner {
+  height: 30px;
+  width: 94%;
+  position: relative;
+  top: 4px;
+  border-radius: 4px;
+  margin: 0 auto;
+  box-shadow: inset 0 3px 2px 0 rgba(50, 50, 50, 0.66);
+}
+#controllerOut #controllerInner .center .buttonBar .buttonBarInner ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  position: relative;
+  top: 8px;
+}
+#controllerOut #controllerInner .center .buttonBar .buttonBarInner ul li {
+  background: -webkit-linear-gradient(#2c211b, #1c1412) left repeat;
+  background: linear-gradient(#2c211b, #1c1412) left repeat;
+  display: inline-block;
+  width: 45px;
+  height: 14px;
+  border-top: solid 2px #635c56;
+  border-radius: 6px;
+  margin: 0 10px 0;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.9);
+  -webkit-transition: all 0.05s;
+  -moz-transition: all 0.05s;
+  transition: all 0.05s;
+}
+#controllerOut #controllerInner .center .buttonBar .buttonBarInner ul li:hover {
+  -webkit-transition: all 0.05s;
+  -moz-transition: all 0.05s;
+  transition: all 0.05s;
+  box-shadow: 0 2px 2px 0 #323232;
+  cursor: pointer;
+}
+#controllerOut #controllerInner .right {
+  position: relative;
+  float: right;
+  font-weight: 400;
+  font-size: 1em;
+  height: 155px;
+  width: 38%;
+}
+#controllerOut #controllerInner .right .trademark {
+  position: relative;
+  top: 10px;
+  right: -45px;
+}
+#controllerOut #controllerInner .right .reg {
+  position: absolute;
+  top: -4px;
+  font-weight: 400;
+  font-size: 0.695em;
+  opacity: 0.9;
+}
+#controllerOut #controllerInner .right .rightButtons {
+  list-style: none;
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+  padding: 0;
+}
+#controllerOut #controllerInner .right .rightButtons li {
+  display: inline-block;
+  margin: 0 0 0 5px;
+  width: 50px;
+  position: relative;
+  height: 50px;
+  background: #c3c4c6;
+  border-radius: 4px;
+  border-top: solid 1px #ecedef;
+}
+#controllerOut #controllerInner .right .rightButtons li .circ {
+  width: 38px;
+  height: 38px;
+  background: -webkit-linear-gradient(#b4150f, #fb3119) left repeat;
+  background: linear-gradient(#b4150f, #fb3119) left repeat;
+  border: 1px solid #3b2b2a;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  margin: 0 auto;
+  position: relative;
+  top: 4px;
+  box-shadow: 0 5px 5px 0 #323232;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  transition: all 0.1s;
+}
+#controllerOut #controllerInner .right .rightButtons li .circ:hover {
+  box-shadow: 0 3px 5px 0 rgba(50, 50, 50, 0.66);
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+#controllerOut #controllerInner .right .rightButtons li .buttNums {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 900;
+  position: absolute;
+  right: 0;
+  opacity: 0.8;
+  font-size: 0.895em;
+  bottom: -18px;
+}
