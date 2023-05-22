@@ -55,12 +55,22 @@ def send_data(direccion=''):
         print(response)
     return render_template("botones.html")
 
-@app.route('/controller/', methods=['GET'])
+@app.route('/controller/', methods=['POST', 'GET'])
 @app.route('/controller/<direccion>', methods=['POST', 'GET'])
 def controller(direccion=''):
-    if direccion != "":
-        response = send_data_to_socket(direccion, "localhost", 5002)
-        print(response)
+
+    if direccion != '':
+        print(direccion)
+
+    if request.method == 'POST':
+        if request.form['submit_button'] == 'submit_a':
+            # Handle Submit 1
+            # Code here will execute if Submit 1 was clicked
+            print("Submit 1 clicked!")
+        elif request.form['submit_button'] == 'submit_b':
+            # Handle Submit 2
+            # Code here will execute if Submit 2 was clicked
+            print("Submit 2 clicked!")
     return render_template("control.html")
 
 

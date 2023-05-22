@@ -379,6 +379,7 @@ body {
   height: 38px;
   background: -webkit-linear-gradient(#b4150f, #fb3119) left repeat;
   background: linear-gradient(#b4150f, #fb3119) left repeat;
+  color: transparent;
   border: 1px solid #3b2b2a;
   -moz-border-radius: 50px;
   -webkit-border-radius: 50px;
@@ -406,4 +407,13 @@ body {
   opacity: 0.8;
   font-size: 0.895em;
   bottom: -18px;
+}
+
+.left{
+  display: flex;
+}
+
+.btn{
+  width: 30px;
+  height: 30px;
 }
