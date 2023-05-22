@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for
 import socket
 import csv
+import pandas
 import os
 
 app = Flask(__name__)
@@ -37,14 +38,12 @@ def hello():
 
 @app.route('/giroscopio/', methods=['GET', 'POST'])
 def giroscopio():
-
     x = request.form.get('x')
     y = request.form.get('y')
     print(x, y)
     if x != None:
         data = [x,y]
         send_csv_data(data)
-
     return render_template("giroscopio.html")
 
 @app.route('/send-data/', methods=['GET'])
@@ -58,19 +57,36 @@ def send_data(direccion=''):
 @app.route('/controller/', methods=['POST', 'GET'])
 @app.route('/controller/<direccion>', methods=['POST', 'GET'])
 def controller(direccion=''):
+    df = pandas.read_csv("/Users/cesarromanzuniga/Documents/ESCUELA/IngSisSem8/Programacion_Graficos/Investigacion_Final/coordenadas.csv", header=None)
+    data = df.iloc[0].tolist()
 
     if direccion != '':
-        print(direccion)
+        if direccion == '1':
+            # Abajo
+            data[1] -= 15
+            print("Abajo")
+        elif direccion == '3':
+            # Arriba
+            data[1] += 15
+            print("Arriba")
+        elif direccion == '2':
+            # Izquierda
+            data[0] -= 15
+            print("Izquierda")
+        elif direccion == '4':
+            # Derecha
+            data[0] += 15
+            print("Derecha")
 
     if request.method == 'POST':
         if request.form['submit_button'] == 'submit_a':
-            # Handle Submit 1
-            # Code here will execute if Submit 1 was clicked
-            print("Submit 1 clicked!")
+            data[2] = 1
+            
         elif request.form['submit_button'] == 'submit_b':
-            # Handle Submit 2
-            # Code here will execute if Submit 2 was clicked
-            print("Submit 2 clicked!")
+            data[2] = 0
+
+    send_csv_data(data)
+            
     return render_template("control.html")
 
 
