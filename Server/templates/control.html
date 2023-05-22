@@ -64,29 +64,30 @@
     }
 
   </style>
+
 </head>
 <body>
   <div id="landscape">
-
+    <form action="{{ url_for('controller') }}", method="POST">
     <div id="controllerOut">
       <div class="cable"></div>
       <div id="controllerInner">
         <div class="left">
           <div class="arrow">
             <div id="trs"></div>
-            <div class="base"></div>
+            <a href="{{ url_for('controller', direccion='3') }}" class="base"></a>
           </div>
           <div class="arrow aDown">
             <div id="trs"></div>
-            <div class="base"></div>
+            <a href="{{ url_for('controller', direccion='1') }}" class="base"></a>
           </div>
           <div class="arrow aLeft">
             <div id="trs"></div>
-            <div class="base"></div>
+            <a href="{{ url_for('controller', direccion='2') }}" class="base"></a>
           </div>
           <div class="arrow aRight">
             <div id="trs"></div>
-            <div class="base"></div>
+            <a href="{{ url_for('controller', direccion='4') }}" class="base"></a>
           </div>
           <div class="horz"></div>
           <div class="horzShad"></div>
@@ -122,18 +123,18 @@
           </h3>
            <ul class="rightButtons"><!-- Botones -->
               <li>
-                <div class="circ"></div>
-                <span class="buttNums">B</span>
+                <input name="submit_button" type="submit" class="circ" value="submit_b">
+                <span type class="buttNums">B</span>
               </li>
               <li>
-                <div class="circ"></div>
+                <input name="submit_button" type="submit" class="circ" value="submit_a">
                 <span class="buttNums aButt">A</span>
               </li>
           </ul>
         </div><!--End Right-->
       </div>
     </div>
-    
+    </form>
   </div>
 
   <div id="portrait">
